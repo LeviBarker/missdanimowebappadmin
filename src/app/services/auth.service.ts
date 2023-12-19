@@ -17,8 +17,9 @@ export class AuthService {
     if (!(email && password)) {
       return false;
     }
-    const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
-    return true;
+
+    return await signInWithEmailAndPassword(this.auth, email, password);
+
   }
 
 }
