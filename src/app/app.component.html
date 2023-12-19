@@ -1,7 +1,7 @@
 <main>
-  <nav style="padding: 8px; display: flex; align-items: center; gap: 8px">
+  <nav style="padding: 8px; display: flex; justify-content: space-between; align-items: center; gap: 8px">
     <img style="height: 24px; width: auto;" ngSrc="assets/images/MissDaniMo_Logo&Brand_Horizontal.png" height="1299" width="7252"/>
-    <span>- Admin</span>
+    <p-button *ngIf="user?.uid" label="Sign Out" size="small" [text]="true" (click)="handleSignOut()"/>
   </nav>
   <router-outlet></router-outlet>
 </main>

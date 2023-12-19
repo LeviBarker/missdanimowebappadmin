@@ -1,10 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {RouterModule, RouterOutlet} from '@angular/router';
-import {collection, collectionData, Firestore} from "@angular/fire/firestore";
-import {Observable} from "rxjs";
+import {Router, RouterModule, RouterOutlet} from '@angular/router';
 import {ButtonModule} from "primeng/button";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Auth, User, signOut} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-root',
@@ -15,4 +13,16 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 })
 export class AppComponent {
   title = 'missdanimowebappadmin';
+  user: User | null | undefined;
+
+  constructor(private auth: Auth, private router: Router) {
+    auth.onAuthStateChanged(user => {
+      this.user = user;
+    })
+  }
+
+  async handleSignOut() {
+    await signOut(this.auth);
+    await this.router.navigate(['login']);
+  }
 }

@@ -1,0 +1,9 @@
+<div style="display: flex; flex-direction: column; padding: 8px 0">
+  <label for="email">Email</label>
+  <input pInputText id="email" aria-describedby="username-help" [(ngModel)]="email"/>
+</div>
+<div style="display: flex; flex-direction: column; padding: 8px 0">
+  <label for="password">Password</label>
+  <input pInputText type="password" id="password" aria-describedby="username-help" [(ngModel)]="password"/>
+</div>
+<p-button label="Sign In" (click)="signIn()" />
