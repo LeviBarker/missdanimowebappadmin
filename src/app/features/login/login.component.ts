@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
@@ -11,7 +11,14 @@ import {FirebaseLoginErrorPipe} from "../../pipes/firebase-login-error.pipe";
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, InputTextModule, PasswordModule, ButtonModule, FormsModule, FirebaseLoginErrorPipe],
+  imports: [
+    CommonModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
+    FormsModule,
+    FirebaseLoginErrorPipe
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -26,8 +33,9 @@ export class LoginComponent {
   async signIn() {
     try {
       await this.authService.signInWithEmailAndPassword(this.email, this.password);
+      await this.router.navigate(['']);
     } catch (e: any) {
-     this.error = e['code'];
+      this.error = e['code'];
     }
   }
 }

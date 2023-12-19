@@ -6,11 +6,10 @@
     </div>
     <div style="display: flex; flex-direction: column; padding: 8px 0; width: 100%">
       <label for="password">Password</label>
-      <p-password [toggleMask]="true" id="password" aria-describedby="username-help" [(ngModel)]="password"/>
+      <p-password [feedback]="false" [toggleMask]="true" id="password" aria-describedby="username-help" [(ngModel)]="password"/>
     </div>
     <div style="padding: 8px 0; color: red;">{{error | firebaseLoginError}}</div>
     <p-button label="Sign In" (click)="signIn()" />
   </div>
-
 </div>
 
