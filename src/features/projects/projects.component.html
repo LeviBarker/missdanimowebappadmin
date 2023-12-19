@@ -1,11 +1,15 @@
-<p-button label="Create Project" size="small" (click)="createProject()"></p-button>
-
-<div *ngFor="let project of projects$ | async" style="display: flex; flex-direction: column">
-  <h2>{{project.title}}</h2>
-  <span>Updated on: {{(project.updated_at?.seconds || 0) * 1000 | date }}</span>
-  <span>Created on: {{(project.created_at?.seconds || 0) * 1000 | date }}</span>
-  <div style="display: flex; gap: 8px; padding: 8px 0">
-    <p-button label="Edit" size="small" [routerLink]="['/projects', project.id]"></p-button>
-    <p-button label="Delete" severity="danger" [text]="true" size="small"  (click)="deleteProject(project.id)"></p-button>
-  </div>
+<div style="padding: 8px 0">
+  <p-button label="Create Project" size="small" (click)="createProject()"></p-button>
 </div>
+
+<div style="display: flex; gap: 8px;">
+  <p-card *ngFor="let project of projects$ | async" [header]="project.title" subheader="Card Subheader">
+    <div>Updated on: {{(project.updated_at?.seconds || 0) * 1000 | date }}</div>
+    <div>Created on: {{(project.created_at?.seconds || 0) * 1000 | date }}</div>
+    <ng-template pTemplate="footer">
+      <p-button label="Edit" size="small" [routerLink]="['/projects', project.id]"></p-button>
+      <p-button label="Delete" severity="danger" [text]="true" size="small"  (click)="deleteProject(project.id)"></p-button>
+    </ng-template>
+  </p-card>
+</div>
+

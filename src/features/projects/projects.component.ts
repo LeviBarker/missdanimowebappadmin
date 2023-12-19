@@ -5,11 +5,12 @@ import {CommonModule} from "@angular/common";
 import {ButtonModule} from "primeng/button";
 import {CRUDService} from "../../services/crud.service";
 import {Project} from "../../models/project";
+import {CardModule} from "primeng/card";
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, ButtonModule],
+  imports: [CommonModule, RouterModule, ButtonModule, CardModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

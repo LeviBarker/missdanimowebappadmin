@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import {collection, collectionData, Firestore} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, ButtonModule],
+  imports: [CommonModule, RouterModule, RouterOutlet, ButtonModule, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
