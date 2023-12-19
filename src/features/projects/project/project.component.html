@@ -1,0 +1,25 @@
+<div *ngIf="project$ | async as project">
+  <p-button label="Back" size="small" [routerLink]="['/']"></p-button>&nbsp;
+  <p-button (click)="updateProject(project)" [label]="saving ? 'Saving' : 'Save Changes'" size="small"></p-button>
+  <div>Updated at: {{project.last_modified?.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</div>
+  <div style="display: flex; flex-direction: column; padding: 8px 0">
+    <label for="username">Title</label>
+    <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="project.title" />
+  </div>
+  <div style="display: flex; flex-direction: column; padding: 8px 0">
+    <label for="username">Video URL</label>
+    <input pInputText id="video-url" aria-describedby="username-help" [(ngModel)]="project.video_url" />
+  </div>
+  <div style="display: flex; flex-direction: column; padding: 8px 0">
+    <label for="username">Time</label>
+    <input pInputText id="time-minutes" aria-describedby="username-help" [(ngModel)]="project.time_minutes" />
+  </div>
+  <div style="display: flex; flex-direction: column; padding: 8px 0">
+    <label for="username">Grownup Involvement</label>
+  <p-dropdown [options]="grownup_involvement" [(ngModel)]="project.grownup_involvement" placeholder="Grownup Involvement"></p-dropdown>
+  </div>
+  <div style="display: flex; flex-direction: column; padding: 8px 0">
+    <label for="username">Messiness Level</label>
+    <p-dropdown [options]="grownup_involvement" [(ngModel)]="project.messiness_level" placeholder="Messiness Level"></p-dropdown>
+  </div>
+</div>

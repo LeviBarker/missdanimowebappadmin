@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "miss-dani-mo": {
+      "hosting": {
+        "missdanimowebappadmin": [
+          "miss-dani-mo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "miss-dani-mo"
+  }
+}

@@ -94,6 +94,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "missdanimowebappadmin:build:production",
+              "serveTarget": "missdanimowebappadmin:serve:production"
+            },
+            "development": {
+              "buildTarget": "missdanimowebappadmin:build:development",
+              "serveTarget": "missdanimowebappadmin:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
