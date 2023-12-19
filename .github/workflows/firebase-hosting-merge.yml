@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MISS_DANI_MO }}'
           channelId: live
           projectId: miss-dani-mo
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
